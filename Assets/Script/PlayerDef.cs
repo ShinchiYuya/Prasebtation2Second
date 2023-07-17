@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class PlayerDef : MonoBehaviour
 {
-
-    [SerializeField] float _speed = 5f;
-    [SerializeField] float _jumpForce = 5f;
-    [SerializeField] bool  _isGrounded = true;
-    [SerializeField] int _jumpcount = 0;
-    [SerializeField] int _maxJumpCount = 2;
-    [SerializeField] float _downSpeed = 50;
+    
+    [Header("移動スピード"),SerializeField] float _speed = 5f;
+    [Header("ジャンプ力"), SerializeField] float _jumpForce = 5f;
+    [Header("地面との判定"), SerializeField] bool  _isGrounded = true;
+    [Header("ジャンプカウント"), SerializeField] int _jumpcount = 0;
+    [Header("最大ジャンプ数"), SerializeField] int _maxJumpCount = 2;
+    [Header("Sを押したときの下に行くスピード"), SerializeField] float _downSpeed = 50;
 
     Rigidbody2D _rb2d;
     Animation _animator;
