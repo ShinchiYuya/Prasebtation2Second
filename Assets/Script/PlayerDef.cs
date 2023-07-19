@@ -11,7 +11,7 @@ public class PlayerDef : MonoBehaviour
     [Header("地面との判定"), SerializeField] bool  _isGrounded = true;
     [Header("ジャンプカウント"), SerializeField] int _jumpcount = 0;
     [Header("最大ジャンプ数"), SerializeField] int _maxJumpCount = 2;
-    [Header("Sを押したときの下に行くスピード"), SerializeField] float _downSpeed = 50;
+    [Header("Ｓを押したときの落下スピード"), SerializeField] float _downSpeed = 50;
 
     Rigidbody2D _rb2d;
     Animation _animator;
@@ -60,6 +60,15 @@ public class PlayerDef : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
+        {
+            _isGrounded = true;
+            _jumpcount = 0;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground") && _jumpcount >= _maxJumpCount)
         {
             _isGrounded = true;
             _jumpcount = 0;
