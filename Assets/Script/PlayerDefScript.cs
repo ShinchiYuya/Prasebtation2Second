@@ -14,10 +14,14 @@ public class PlayerDefScript : MonoBehaviour
     Animator _anim;
     float _h = 0;
 
+    Animator _animator;
+    static readonly int SpeedXHash = Animator.StringToHash("SpeedX");
+
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -54,6 +58,32 @@ public class PlayerDefScript : MonoBehaviour
         {
             _isGrounded = true;
             _jumpCount = 0;
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (_animator)
+        {
+            _animator.SetFloat("SpeedX", Mathf.Abs(_rb2d.velocity.x));
+            _animator.SetFloat("SpeedY", _rb2d.velocity.y);
+            _animator.SetBool("IsGrounded", _isGrounded);
+
+            if (Mathf.Abs(_rb2d.velocity.x) <= 2f && Mathf.Abs(_rb2d.velocity.y) <= +1f)
+            {
+                _animator.Play("Idle_Animaton");
+            }
+
+            if (Mathf.Abs(_rb2d.velocity.x) >= 2f)
+            {
+                _animator.Play("Player_Run_Animaton");
+            }
+
+            if (Mathf.Abs(_rb2d.velocity.y) >= +1f && _isGrounded)
+            {
+                _animator.Play("Player_Jump_Animation");
+            }
+
         }
     }
 }
