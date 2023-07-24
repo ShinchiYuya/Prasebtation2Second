@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class PlayerDefScript : MonoBehaviour
@@ -30,8 +31,16 @@ public class PlayerDefScript : MonoBehaviour
         Jump();
         ForceDown();
         AnimControll();
+        ReStart();
     }
 
+    private void ReStart()
+    {
+        if (Input.GetKey(KeyCode.R))
+        {
+            this.gameObject.transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
+        }
+    }
     private void AnimControll()
     {
         this._anim.SetBool("moving", (this._h != 0));
