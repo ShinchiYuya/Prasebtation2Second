@@ -8,4 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/StageSelect.unity
+    guid: 47addd28ce5c77e4c8ec019a71ef6303
+  - enabled: 1
+    path: Assets/Scenes/CharaSelect.unity
+    guid: fb6dd25b92a163b4c98ce3f8a82753dd
+  - enabled: 1
+    path: Assets/Scenes/Game2.unity
+    guid: 8bbe9d51b71d95640adc5eb5ecf86bf1
+  - enabled: 1
+    path: Assets/Scenes/Game3.unity
+    guid: e474987d6625c794187ff7544cae91e5
+  - enabled: 1
+    path: Assets/Scenes/HowToPlayScene.unity
+    guid: b7222291d9db09d469472f42c4512f21
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: 154f6df1963bcfd4e81cc0d0b4c76609
   m_configObjects: {}
