@@ -40,7 +40,7 @@ public class PlayerDefScript : MonoBehaviour
 
     protected void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && (_isGrounded || _jumpCount < _maxJump))
+        if (Input.GetKeyDown(KeyCode.Space) && (_isGrounded || _jumpCount < _maxJump) || (Input.GetKeyDown(KeyCode.W)))
         {
             _rb2d.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _jumpCount++;
