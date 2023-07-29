@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField, Header("")] static int _life = 3;
-    [SerializeField, Header("")] static int _iLife;
+    [SerializeField, Header("")]public static int _life = 3;
+    [SerializeField, Header("")]public static int _iLife;
 
 
     public Rigidbody2D _rb2d;
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary> Lifeä«óùÇP </summary>
-    static void IntiGame()
+    public static void IntiGame()
     {
         _iLife = _life;
     }

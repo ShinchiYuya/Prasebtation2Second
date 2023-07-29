@@ -48,6 +48,8 @@ public class PlayerDefScript : MonoBehaviour
 
         _currentHealth -= _damage; // ƒ_ƒ[ƒW‚ğ‘Ì—Í‚©‚çŒ¸Z
 
+        Refresh(GameManager._life, PlayerCounterScript);
+
         // ‘Ì—Í‚ª0ˆÈ‰º‚É‚È‚Á‚½ê‡‚Í“G‚ğ”j‰ó
         if (_currentHealth <= 0)
         {

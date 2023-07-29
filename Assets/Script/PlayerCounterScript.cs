@@ -9,7 +9,7 @@ public class PlayerCounterScript : MonoBehaviour
     [SerializeField] Vector2 _spriteSize = new Vector2(50f, 50f);
     [SerializeField] RectTransform _playerCounterPanel = null;
 
-    void Refresh(int playerCount)
+    public void Refresh(int playerCount)
     {
         if (_playerUiSpr &&  _playerCounterPanel)
         {
