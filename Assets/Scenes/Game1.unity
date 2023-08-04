@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 207367482}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,7 +403,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207367481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.88, y: -2.09, z: 0}
+  m_LocalPosition: {x: -48.6, y: -1.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   _jumpCount: 0
   _maxJump: 2
   _maxHealth: 1
-  _currentHealth: 0
+  _currentHealth: 1
   _damage: 1
   collisionEffectPrefab: {fileID: 0}
   effectDuration: 3
@@ -3103,8 +3103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701185204622980431, guid: 516b86006c464c04c8d3ae364c9343bd, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8701185204622980431, guid: 516b86006c464c04c8d3ae364c9343bd, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516b86006c464c04c8d3ae364c9343bd, type: 3}

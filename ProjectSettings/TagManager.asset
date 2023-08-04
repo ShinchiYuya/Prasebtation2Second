@@ -9,6 +9,7 @@ TagManager:
   - GrabbableObject
   - Goal
   - Life
+  - Enemy
   layers:
   - Default
   - TransparentFX

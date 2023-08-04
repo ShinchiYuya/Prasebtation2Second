@@ -41,14 +41,15 @@ public class PlayerDefScript : MonoBehaviour
         ReStart();
     }
 
-    
+
     public void TakeDamage(int damage)
     {
         if (_isDead) return; // 既に死亡している場合は処理を中断
 
-        _currentHealth -= _damage; // ダメージを体力から減算
+        _currentHealth -= damage; // ダメージを体力から減算
 
-        Refresh(GameManager._life, PlayerCounterScript);
+        // Refreshメソッドの引数は修正が必要です（具体的なGameManagerやPlayerCounterScriptの実装に依存するため）。
+        // Refresh(GameManager._life, PlayerCounterScript);
 
         // 体力が0以下になった場合は敵を破壊
         if (_currentHealth <= 0)
@@ -64,6 +65,7 @@ public class PlayerDefScript : MonoBehaviour
             SceneManager.LoadScene("TitleScene");
         }
     }
+
     private void ReStart()
     {
         if (Input.GetKey(KeyCode.R))
