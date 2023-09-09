@@ -10,6 +10,8 @@ TagManager:
   - Goal
   - Life
   - Enemy
+  - Wall
+  - Gem
   layers:
   - Default
   - TransparentFX

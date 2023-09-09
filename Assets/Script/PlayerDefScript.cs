@@ -110,10 +110,11 @@ public class PlayerDefScript : MonoBehaviour
 
     protected void OnCollisionEnter2D (Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Wall"))
         {
             _isGrounded = true;
             _jumpCount = 0;
+            this.gameObject.transform.parent = collision.gameObject.transform;
         }
 
         if (collision.gameObject.CompareTag("Enemy"))

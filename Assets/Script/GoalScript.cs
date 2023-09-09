@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class GoalScript : MonoBehaviour
 {
@@ -21,7 +17,7 @@ public class GoalScript : MonoBehaviour
     {
         if (collision != null && collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("StageSelect");
+            SceneManager.LoadScene("TitleScene");
         }
     }
 }
