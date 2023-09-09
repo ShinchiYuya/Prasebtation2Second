@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7496021126945007551}
   - component: {fileID: 3723354789448305333}
   m_Layer: 0
-  m_Name: box 1
+  m_Name: moveBox
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
