@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "Score: " + score_num;//表記
+        scoreText.text = "Gem : " + score_num + " / 3 ";//表記
     }
 
     public void IncreaseScore(int amount)

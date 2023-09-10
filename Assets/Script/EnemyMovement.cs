@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     protected Rigidbody2D _rb2d;
     protected Animation _anim;
 
-    private void Start()
+    protected void Start()
     {
         _anim = GetComponent<Animation>();
         _rb2d = GetComponent<Rigidbody2D>();
