@@ -3,9 +3,6 @@ using DG.Tweening;
 
 public class EnemyMovement : MonoBehaviour
 {
-    //[SerializeField] float _speed;
-    //[SerializeField] float _pX, _pY;
-    //[SerializeField] float _dur;
     [SerializeField] float _speed = 1f;
 
     Rigidbody2D _rb2d;
@@ -19,11 +16,10 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        //transform.DOLocalMoveX(_pX, _dur).SetEase(Ease.Linear);
-        transform.Translate(Vector2.left * _speed * Time.deltaTime);
+        transform.Translate(Vector2.left * _speed * Time.deltaTime);//ç∂Ç…à⁄ìÆÇ≥ÇπÇÈ
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Wall"))
         {

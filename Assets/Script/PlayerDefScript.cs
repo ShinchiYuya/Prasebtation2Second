@@ -3,25 +3,25 @@ using UnityEngine;
 
 public class PlayerDefScript : MonoBehaviour
 {
-    [SerializeField] public float _speed;
-    [SerializeField] public float _jumpForce;
-    [SerializeField] public bool _isGrounded = true;
-    [SerializeField] public int _jumpCount;
-    [SerializeField] public int _maxJump = 2;
-    [SerializeField] public int _maxHealth = 1;
-    [SerializeField] public int _currentHealth;
-    [SerializeField] public int _damage = 1; 
+    [SerializeField] float _speed;
+    [SerializeField] float _jumpForce;
+    [SerializeField] bool _isGrounded = true;
+    [SerializeField] int _jumpCount;
+    [SerializeField] int _maxJump = 2;
+    [SerializeField] int _maxHealth = 1;
+    [SerializeField] int _currentHealth;
+    [SerializeField] int _damage = 1; 
 
     SpriteRenderer _sprtRdr;
-    protected Rigidbody2D _rb2d;
-    protected Animator _anim;
-    protected float _h = 0;
+    Rigidbody2D _rb2d;
+    Animator _anim;
+    float _h = 0;
 
-    public GameObject collisionEffectPrefab; // 衝突エフェクトのプレハブ
-    public float effectDuration = 3f; // エフェクトの持続時間
-    public AudioClip deathSound; // 死亡時のサウンド
-    private AudioSource audioSource; // オーディオソース
-    private bool _isDead = false; // 死亡フラグ
+    GameObject collisionEffectPrefab; // 衝突エフェクトのプレハブ
+    float effectDuration = 3f; // エフェクトの持続時間
+    AudioClip deathSound; // 死亡時のサウンド
+    AudioSource audioSource; // オーディオソース
+    bool _isDead = false; // 死亡フラグ
 
     protected void Start()
     {
@@ -66,20 +66,20 @@ public class PlayerDefScript : MonoBehaviour
         }
     }
 
-    private void ReStart()
+    void ReStart()
     {
         if (Input.GetKey(KeyCode.R))
         {
             this.gameObject.transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
         }
     }
-    private void AnimControll()
+    void AnimControll()
     {
         this._anim.SetBool("moving", (this._h != 0));
         if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.W))) { this._anim.SetTrigger("jump"); }
     }
 
-    private void ForceDown()
+    void ForceDown()
     {
         if (Input.GetKey(KeyCode.S))
         {
@@ -87,7 +87,7 @@ public class PlayerDefScript : MonoBehaviour
         }
     }
 
-    protected void Move()
+    void Move()
     {
         _h = Input.GetAxis("Horizontal");
         this._sprtRdr.flipX = (this._h < 0);
@@ -95,7 +95,7 @@ public class PlayerDefScript : MonoBehaviour
         _rb2d.velocity = velocity;
     }
 
-    protected void Jump()
+    void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.W)))
         {
@@ -108,13 +108,13 @@ public class PlayerDefScript : MonoBehaviour
         }
     }
 
-    protected void OnCollisionEnter2D (Collision2D collision)
+    void OnCollisionEnter2D (Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Wall"))
         {
             _isGrounded = true;
             _jumpCount = 0;
-            this.gameObject.transform.parent = collision.gameObject.transform;
+            this.gameObject.transform.parent = collision.gameObject.transform;//Ground か Wall のタグに乗った時子オブジェクトにする
         }
 
         if (collision.gameObject.CompareTag("Enemy"))

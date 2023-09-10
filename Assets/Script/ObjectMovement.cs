@@ -6,7 +6,7 @@ public class ObjectMovement : MonoBehaviour
     [SerializeField] float moveDistance; // ˆÚ“®‹——£
 
     Vector2 initialPosition; // ‰ŠúˆÊ’u
-    int direction = 1; // ˆÚ“®•ûŒüi1‚Ü‚½‚Í-1j
+    int direction = 1; // ˆÚ“®•ûŒü
 
     void Start()
     {

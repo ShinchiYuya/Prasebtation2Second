@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class PlayerCheckScript : MonoBehaviour
 {
-    public bool isOn = false;
+    public bool isOn = false;//範囲内にplayerがいるか確認するフラグ
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             isOn = true;
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {

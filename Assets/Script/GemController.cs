@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class GemController : MonoBehaviour
 {
-    public int gemScore = 1;
+    public int gemScore = 1;　//gemをとった時のスコアポイント
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();//ScoreManagerのインスタンスをscoreManager変数に代入
             if (scoreManager != null)
             {
-                scoreManager.IncreaseScore(gemScore);
+                scoreManager.IncreaseScore(gemScore);//PlayerのスコアをgemScoreとして指定された値だけ増加させる
             }
 
-            Destroy(gameObject);
+            Destroy(gameObject);//gemが取得されたときにgemが破壊されるようにする
         }
     }
 }
