@@ -10,7 +10,6 @@ public class GhostMovementScript : EnemyMovement
 
     private void Start()
     {
-        // 基底クラスの Start メソッドを呼び出す
         base.Start();
     }
 

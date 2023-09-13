@@ -8,7 +8,7 @@ public class GemController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            ScoreManager scoreManager = FindObjectOfType<ScoreManager>();//ScoreManagerのインスタンスをscoreManager変数に代入
+            PointManager scoreManager = FindObjectOfType<PointManager>();//ScoreManagerのインスタンスをscoreManager変数に代入
             if (scoreManager != null)
             {
                 scoreManager.IncreaseScore(gemScore);//PlayerのスコアをgemScoreとして指定された値だけ増加させる

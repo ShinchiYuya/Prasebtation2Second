@@ -16,7 +16,12 @@ public class GoalScript : MonoBehaviour
     {
         if (collision != null && collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("TitleScene");
+            PointManager scoreManager = FindObjectOfType<PointManager>();
+
+            if(scoreManager != null && scoreManager.GetGemCount() >= scoreManager.GetRequiredGems())
+            {
+                SceneManager.LoadScene("TitleScene");
+            }
         }
     }
 }
