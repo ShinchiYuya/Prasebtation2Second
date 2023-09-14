@@ -7,12 +7,10 @@ public class ObjectMovement : MonoBehaviour
 
     Vector2 initialPosition; // 初期位置
     int direction = 1; // 移動方向
-
     void Start()
     {
         initialPosition = transform.position; // 初期位置を保存
     }
-
     void Update()
     {
         // オブジェクトを水平方向に移動させる

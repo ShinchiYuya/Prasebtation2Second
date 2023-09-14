@@ -23,15 +23,13 @@ public class GhostMovementScript : EnemyMovement
         {
             // ã‚ÉˆÚ“®
             transform.DOMoveY(transform.position.y + verticalDistance, verticalDuration)
-                .SetEase(Ease.Linear)
-                .OnComplete(() => movingUp = false); // ã¸‚ªŠ®—¹‚µ‚½‚ç‰º~‚Ö
+            .SetEase(Ease.Linear).OnComplete(() => movingUp = false); // ã¸‚ªŠ®—¹‚µ‚½‚ç‰º~‚Ö
         }
         else
         {
             // ‰º‚ÉˆÚ“®
             transform.DOMoveY(transform.position.y - verticalDistance, verticalDuration)
-                .SetEase(Ease.Linear)
-                .OnComplete(() => movingUp = true); // ‰º~‚ªŠ®—¹‚µ‚½‚çã¸‚Ö
+            .SetEase(Ease.Linear).OnComplete(() => movingUp = true); // ‰º~‚ªŠ®—¹‚µ‚½‚çã¸‚Ö
         }
     }
 }

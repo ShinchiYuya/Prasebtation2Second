@@ -16,7 +16,7 @@ public class PlayerDefScript : MonoBehaviour
     Rigidbody2D _rb2d;
     Animator _anim;
     float _h = 0;
-
+    Vector3 initialPosition;
     GameObject collisionEffectPrefab; // 衝突エフェクトのプレハブ
     float effectDuration = 3f; // エフェクトの持続時間
     AudioClip deathSound; // 死亡時のサウンド
@@ -30,6 +30,8 @@ public class PlayerDefScript : MonoBehaviour
         this._sprtRdr = GetComponent<SpriteRenderer>();
         this._sprtRdr.flipX = true;
         _currentHealth = _maxHealth;
+
+        initialPosition = transform.position;
     }
 
     protected void Update()
@@ -68,8 +70,9 @@ public class PlayerDefScript : MonoBehaviour
 
     void ReStart()
     {
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
+            transform.position = initialPosition;
             this.gameObject.transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
         }
     }
