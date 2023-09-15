@@ -9,6 +9,7 @@ public class GhostMovementScript : EnemyMovement
     private bool movingUp = true; // ãŒü‚«‚ÉˆÚ“®’†‚©‚Ç‚¤‚©
 
     private void Start()
+
     {
         base.Start();
     }

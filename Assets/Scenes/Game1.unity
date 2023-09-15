@@ -3155,15 +3155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _jumpForce: 5
-  _isGrounded: 1
+  targetSceneName: "GameOver \uFF11"
   _jumpCount: 0
-  _maxJump: 2
-  _maxHealth: 1
-  _currentHealth: 1
-  _damage: 1
-  collisionEffectPrefab: {fileID: 0}
-  effectDuration: 3
-  deathSound: {fileID: 0}
 --- !u!95 &1220320024
 Animator:
   serializedVersion: 5
@@ -3524,6 +3517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1507082139}
+  requiredGems: 3
 --- !u!114 &1507082139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3707,9 +3701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd31e85c8e7ee84bb25cee4aeeb328a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  stagenum: 0
-  continueNum: 0
 --- !u!4 &1597603474
 Transform:
   m_ObjectHideFlags: 0

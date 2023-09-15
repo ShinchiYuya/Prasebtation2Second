@@ -11,15 +11,39 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StageSelect.unity
     guid: 47addd28ce5c77e4c8ec019a71ef6303
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CharaSelect.unity
     guid: fb6dd25b92a163b4c98ce3f8a82753dd
   - enabled: 1
     path: Assets/Scenes/Game2.unity
-    guid: 8bbe9d51b71d95640adc5eb5ecf86bf1
+    guid: 6050b9ba579f0854f9d6784a6a0d8835
+  - enabled: 0
+    path: Assets/Scenes/GameOver X.unity
+    guid: c9a6df61aa3986742abb7d44d66513a9
+  - enabled: 1
+    path: Assets/Scenes/GameOver1.unity
+    guid: f608cd33fec73a64da9902ca12cbcab5
+  - enabled: 1
+    path: Assets/Scenes/GameOver2.unity
+    guid: 303de07af614f74429d1412d1d3da438
+  - enabled: 1
+    path: Assets/Scenes/GameOverX.unity
+    guid: 4cc2919fa6630984e891bfc2763eead6
+  - enabled: 1
+    path: Assets/Scenes/GameOver3.unity
+    guid: 341d52c49625fe940b926eeadb5e30b3
+  - enabled: 0
+    path: "Assets/Scenes/GameOver \uFF12.unity"
+    guid: d415efedd1129374396780a01f82939b
+  - enabled: 0
+    path: "Assets/Scenes/GameOver \uFF13.unity"
+    guid: f1cc3ffadacd0314d8a1c7d7c8eb92ba
+  - enabled: 1
+    path: Assets/Scenes/SuccessGame.unity
+    guid: e71693fbb54d70941ad2d6493911ec5f
   - enabled: 1
     path: Assets/Scenes/Game3.unity
-    guid: e474987d6625c794187ff7544cae91e5
+    guid: 08be9d12ef21e2b4ca9f6c2975eab4e8
   - enabled: 1
     path: Assets/Scenes/HowToPlayScene.unity
     guid: b7222291d9db09d469472f42c4512f21

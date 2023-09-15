@@ -5,23 +5,25 @@ public class PlayerDefScript : MonoBehaviour
 {
     [SerializeField] float _speed;
     [SerializeField] float _jumpForce;
-    [SerializeField] bool _isGrounded = true;
+    [SerializeField] string targetSceneName;
     [SerializeField] int _jumpCount;
-    [SerializeField] int _maxJump = 2;
-    [SerializeField] int _maxHealth = 1;
-    [SerializeField] int _currentHealth;
-    [SerializeField] int _damage = 1; 
+
+    bool _isGrounded = true;
+    int _maxJump = 2;
+    int _maxHealth = 1;
+    int _currentHealth;
+    int _damage = 1;
+    float effectDuration = 3f; // エフェクトの持続時間
+    float _h = 0;
+    bool _isDead = false; // 死亡フラグ
 
     SpriteRenderer _sprtRdr;
     Rigidbody2D _rb2d;
     Animator _anim;
-    float _h = 0;
     Vector3 initialPosition;
     GameObject collisionEffectPrefab; // 衝突エフェクトのプレハブ
-    float effectDuration = 3f; // エフェクトの持続時間
     AudioClip deathSound; // 死亡時のサウンド
     AudioSource audioSource; // オーディオソース
-    bool _isDead = false; // 死亡フラグ
 
     protected void Start()
     {
@@ -64,7 +66,7 @@ public class PlayerDefScript : MonoBehaviour
                 audioSource.PlayOneShot(deathSound);
             }
 
-            SceneManager.LoadScene("TitleScene");
+            SceneManager.LoadScene(targetSceneName);
         }
     }
 
