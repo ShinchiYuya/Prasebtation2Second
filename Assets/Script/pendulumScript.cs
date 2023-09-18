@@ -1,28 +1,31 @@
-using System.Collections;
 using UnityEngine;
 
-public class pendulumScript : MonoBehaviour
+public class PendulumScript : MonoBehaviour
 {
-
-    [SerializeField] float _span = 3.0f;
-    [SerializeField] float _pendulumForce = 10.0f;
+    [SerializeField] float swingForce = 10f; // U‚èq‚É‰Á‚¦‚é—Í‚Ì‘å‚«‚³
+    [SerializeField] float maxSwingAngle = 30f; // U‚èq‚ÌÅ‘åU‚è•iŠp“xj
 
     Rigidbody2D _rb2d;
+    Quaternion startRotation;
 
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
-        StartCoroutine("Logging");
+        startRotation = transform.rotation;
     }
 
-    IEnumerator Logging()
+    void FixedUpdate()
     {
-        while (true)
+        // U‚èq‚ÌŠp“x‚ğŒvZ
+        float currentAngle = Quaternion.Angle(startRotation, transform.rotation);
+
+        // Å‘åU‚è•ˆÈã‚É‚È‚Á‚½‚ç—Í‚ğ”½“]‚³‚¹‚é
+        if (currentAngle >= maxSwingAngle)
         {
-            yield return new WaitForSeconds(_span);
-            //Debug.LogFormat("{0}•bŒo‰ß", _span);
-            Vector2 forceUp = Vector2.up;
-            _rb2d.AddForce(forceUp * _pendulumForce,ForceMode2D.Force);
+            swingForce = -swingForce;
         }
+
+        // U‚èq‚É—Í‚ğ‰Á‚¦‚é
+        _rb2d.AddTorque(swingForce);
     }
 }
