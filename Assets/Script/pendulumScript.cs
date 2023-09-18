@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PendulumScript : MonoBehaviour
+public class pendulumScript : MonoBehaviour
 {
     [SerializeField] float swingForce = 10f; // U‚èq‚É‰Á‚¦‚é—Í‚Ì‘å‚«‚³
     [SerializeField] float maxSwingAngle = 30f; // U‚èq‚ÌÅ‘åU‚è•iŠp“xj
