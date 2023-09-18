@@ -20,7 +20,7 @@ public class GoalScript : MonoBehaviour
 
             if(scoreManager != null && scoreManager.GetGemCount() >= scoreManager.GetRequiredGems())
             {
-                SceneManager.LoadScene("TitleScene");
+                SceneManager.LoadScene("SuccessGame");
             }
         }
     }
