@@ -40,4 +40,9 @@ public class GameManager : MonoBehaviour
     {
         return initialEnemyPosition;
     }
+
+    public void GameOver()
+    {
+
+    }
 }

@@ -27,6 +27,7 @@ public class PlayerDefScript : MonoBehaviour
 
     public static object Instance { get; internal set; }
 
+
     protected void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
