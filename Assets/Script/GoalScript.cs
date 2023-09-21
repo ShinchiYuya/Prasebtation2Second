@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GoalScript : MonoBehaviour
 {
     [SerializeField] GameObject _goal;
+    [SerializeField] string targetSceneName; // ˆÚ“®æ‚ÌƒV[ƒ“–¼‚ðŽw’è‚·‚é
 
     Rigidbody2D _rb2d;
 
@@ -20,7 +21,7 @@ public class GoalScript : MonoBehaviour
 
             if(scoreManager != null && scoreManager.GetGemCount() >= scoreManager.GetRequiredGems())
             {
-                SceneManager.LoadScene("SuccessGame");
+                SceneManager.LoadScene(targetSceneName);
             }
         }
     }
