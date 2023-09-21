@@ -8,6 +8,8 @@ public class PlayerDefScript : MonoBehaviour
     [SerializeField] string targetSceneName;
     [SerializeField] int _jumpCount;
 
+    [SerializeField] int _damageAmount;
+
     bool _isGrounded = true;
     int _maxJump = 2;
     int _maxHealth = 1;
@@ -113,6 +115,15 @@ public class PlayerDefScript : MonoBehaviour
                 _jumpCount++;
                 _isGrounded = false;
             }
+        }
+    }
+
+    public void InflictDamage()
+    {
+        PlayerDefScript player = GetComponent<PlayerDefScript>();
+        if (player != null)
+        {
+            player.TakeDamage(_damageAmount);
         }
     }
 

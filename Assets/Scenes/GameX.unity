@@ -4590,6 +4590,7 @@ MonoBehaviour:
   _jumpForce: 5
   targetSceneName: GameOverX
   _jumpCount: 0
+  _damageAmount: 2147483647
 --- !u!95 &1220320024
 Animator:
   serializedVersion: 5
@@ -5082,10 +5083,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d168dafa5e0a8464b97dd293323f2ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalTime: 50
-  _minute: 0
-  _second: 0
-  _oldSeconds: 0
+  _maxTime: 200
+  _textCountDown: {fileID: 1445227791}
+  playerDamageScript: {fileID: 1220320023}
 --- !u!114 &1445227791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5119,7 +5119,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 'Timer
+
+'
 --- !u!222 &1445227792
 CanvasRenderer:
   m_ObjectHideFlags: 0
