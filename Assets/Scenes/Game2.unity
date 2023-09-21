@@ -1334,7 +1334,7 @@ GameObject:
   - component: {fileID: 377386094}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2948,7 +2948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _jumpForce: 5
-  targetSceneName: 
+  targetSceneName: GameOver2
   _jumpCount: 0
   _damageAmount: 0
 --- !u!95 &1220320024
@@ -3377,6 +3377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _goal: {fileID: 1470528931}
+  targetSceneName: 
 --- !u!1 &1604644808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4568,6 +4569,10 @@ PrefabInstance:
     - target: {fileID: 8701185204622980431, guid: 516b86006c464c04c8d3ae364c9343bd, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701185204622980431, guid: 516b86006c464c04c8d3ae364c9343bd, type: 3}
+      propertyPath: targetSceneName
+      value: SuccessGame2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516b86006c464c04c8d3ae364c9343bd, type: 3}

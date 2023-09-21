@@ -27,11 +27,20 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver3.unity
     guid: 341d52c49625fe940b926eeadb5e30b3
   - enabled: 1
-    path: Assets/Scenes/SuccessGame.unity
-    guid: e71693fbb54d70941ad2d6493911ec5f
-  - enabled: 1
     path: Assets/Scenes/Game3.unity
     guid: 08be9d12ef21e2b4ca9f6c2975eab4e8
+  - enabled: 1
+    path: Assets/Scenes/SuccessGame1.unity
+    guid: 139bbbb3bf914114f9cfcf6821c3eb47
+  - enabled: 1
+    path: Assets/Scenes/SuccessGame2.unity
+    guid: 3fe0f65304590d34b82b6b65fe7c4573
+  - enabled: 1
+    path: Assets/Scenes/SuccessGame3.unity
+    guid: b47443dba28c9184c80565d6216743fc
+  - enabled: 1
+    path: Assets/Scenes/SuccessGameX.unity
+    guid: ce3ce3d4437854e43bf9c4fd6a3f93c4
   - enabled: 1
     path: Assets/Scenes/HowToPlayScene.unity
     guid: b7222291d9db09d469472f42c4512f21

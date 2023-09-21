@@ -7171,5 +7171,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 8701185204622980431, guid: 516b86006c464c04c8d3ae364c9343bd, type: 3}
+      propertyPath: targetSceneName
+      value: SuccessGameX
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516b86006c464c04c8d3ae364c9343bd, type: 3}
