@@ -1,5 +1,6 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEditor;
 
 public class PlayerDefScript : MonoBehaviour
 {
@@ -7,17 +8,21 @@ public class PlayerDefScript : MonoBehaviour
     [SerializeField] float _jumpForce;
     [SerializeField] string targetSceneName;
     [SerializeField] int _jumpCount;
-
     [SerializeField] int _damageAmount;
+    [SerializeField] AudioClip _jumpAudio;
+    [SerializeField] AudioClip _runAudio;
+    [SerializeField] AudioClip _deathAudio;
 
     bool _isGrounded = true;
     int _maxJump = 2;
     int _maxHealth = 1;
     int _currentHealth;
     int _damage = 1;
-    float effectDuration = 3f; // エフェクトの持続時間
+    //float effectDuration = 3f; // エフェクトの持続時間
     float _h = 0;
     bool _isDead = false; // 死亡フラグ
+    bool isRunning = true;
+    bool isJumpping = false;
 
     SpriteRenderer _sprtRdr;
     Rigidbody2D _rb2d;
@@ -85,9 +90,15 @@ public class PlayerDefScript : MonoBehaviour
     }
     void AnimControll()
     {
-        this._anim.SetBool("moving", (this._h != 0));
-        if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.W))) { this._anim.SetTrigger("jump"); }
+        this._anim.SetBool("isRunning", Mathf.Abs(_h) > 0); // 走行中のアニメーション
+        this._anim.SetBool("isJumpping", !_isGrounded); // ジャンプ中のアニメーション
+
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && _isGrounded)
+        {
+            this._anim.SetTrigger("isJumpping"); // ジャンプトリガーをセット
+        }
     }
+
 
     void ForceDown()
     {
@@ -97,16 +108,66 @@ public class PlayerDefScript : MonoBehaviour
         }
     }
 
-    void Move()
+    /*void Move()
     {
         _h = Input.GetAxis("Horizontal");
         this._sprtRdr.flipX = (this._h < 0);
         Vector2 velocity = new Vector2(_h * _speed ,_rb2d.velocity.y);
         _rb2d.velocity = velocity;
+
+        if (Mathf.Abs(_h) > 0 && _isGrounded)
+        {
+            this._anim.SetBool("isRunning",isRunning);
+
+            if (_runAudio != null && audioSource != null && !audioSource.isPlaying)
+            {
+                isRunning = true;
+
+                audioSource.PlayOneShot(_runAudio);
+            }
+        }
+        else
+        {
+            if (audioSource != null)
+            {
+                isRunning = false;
+                audioSource.Stop();
+            }
+        }
+    }*/
+
+    void Move()
+    {
+        _h = Input.GetAxis("Horizontal");
+        this._sprtRdr.flipX = (this._h < 0);
+        Vector2 velocity = new Vector2(_h * _speed, _rb2d.velocity.y);
+        _rb2d.velocity = velocity;
+
+        // 走っているかどうかをアニメーションに伝える
+        this._anim.SetBool("isRunning", Mathf.Abs(_h) > 0 && _isGrounded);
+
+        if (Mathf.Abs(_h) > 0 && _isGrounded)
+        {
+            if (_runAudio != null && audioSource != null && !audioSource.isPlaying)
+            {
+                isRunning = true;
+                audioSource.PlayOneShot(_runAudio);
+            }
+        }
+        else
+        {
+            if (audioSource != null)
+            {
+                isRunning = false;
+                audioSource.Stop();
+            }
+        }
     }
 
     void Jump()
     {
+        this._anim.SetTrigger("isJumpping");
+
         if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.W)))
         {
             if (_isGrounded || _jumpCount < _maxJump)

@@ -163,12 +163,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 5
   _jumpForce: 5
-  _isGrounded: 1
+  targetSceneName: 
   _jumpCount: 0
-  _maxJump: 2
-  _maxHealth: 1
-  _currentHealth: 0
-  _damage: 1
+  _damageAmount: 0
+  _jumpAudio: {fileID: 0}
+  _runAudio: {fileID: 8300000, guid: f04d2cc73b395ba4e85af527609fb802, type: 3}
+  _deathAudio: {fileID: 0}
 --- !u!95 &5033756789408302732
 Animator:
   serializedVersion: 5
