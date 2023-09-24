@@ -1,6 +1,5 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEditor;
 
 public class PlayerDefScript : MonoBehaviour
 {
@@ -29,7 +28,6 @@ public class PlayerDefScript : MonoBehaviour
     Animator _anim;
     Vector3 initialPosition;
     GameObject collisionEffectPrefab; // 衝突エフェクトのプレハブ
-    AudioClip deathSound; // 死亡時のサウンド
     AudioSource audioSource; // オーディオソース
 
     public static object Instance { get; internal set; }
@@ -42,7 +40,7 @@ public class PlayerDefScript : MonoBehaviour
         this._sprtRdr = GetComponent<SpriteRenderer>();
         this._sprtRdr.flipX = true;
         _currentHealth = _maxHealth;
-
+        audioSource = GetComponent<AudioSource>();
         initialPosition = transform.position;
     }
 
@@ -71,9 +69,9 @@ public class PlayerDefScript : MonoBehaviour
             _isDead = true; // 死亡フラグを設定
 
             // 死亡時のサウンドを再生
-            if (deathSound != null)
+            if (_deathAudio != null)
             {
-                audioSource.PlayOneShot(deathSound);
+                audioSource.PlayOneShot(_deathAudio);
             }
 
             SceneManager.LoadScene(targetSceneName);
@@ -151,7 +149,7 @@ public class PlayerDefScript : MonoBehaviour
             if (_runAudio != null && audioSource != null && !audioSource.isPlaying)
             {
                 isRunning = true;
-                audioSource.PlayOneShot(_runAudio);
+                audioSource.PlayOneShot(_runAudio); // 走っている時のサウンド再生
             }
         }
         else
@@ -175,6 +173,12 @@ public class PlayerDefScript : MonoBehaviour
                 _rb2d.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
                 _jumpCount++;
                 _isGrounded = false;
+
+                if (_jumpAudio != null && audioSource != null) // ジャンプ時のサウンド再生
+                {
+                    audioSource.PlayOneShot(_jumpAudio);
+                    Debug.Log("一応ジャンプオン出てるある");
+                }
             }
         }
     }
