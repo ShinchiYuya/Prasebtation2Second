@@ -178,6 +178,7 @@ public class PlayerDefScript : MonoBehaviour
                 {
                     isJumpping = true;
                     audioSource.PlayOneShot(_jumpAudio);
+                    Debug.Log("aaa0");
                 }
                 else
                 {
