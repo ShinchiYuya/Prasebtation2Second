@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCheckScript : MonoBehaviour
 {
-    public bool isOn = false;//範囲内にplayerがいるか確認するフラグ
+    bool isOn = false;//範囲内にplayerがいるか確認するフラグ
 
     void OnTriggerEnter2D(Collider2D collision)
     {

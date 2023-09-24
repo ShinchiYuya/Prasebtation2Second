@@ -26,7 +26,7 @@ public class PlayerDefScript : MonoBehaviour
     SpriteRenderer _sprtRdr;
     Rigidbody2D _rb2d;
     Animator _anim;
-    Vector3 initialPosition;
+    Vector3 transPos;
     GameObject collisionEffectPrefab; // 衝突エフェクトのプレハブ
     AudioSource audioSource; // オーディオソース
 
@@ -41,7 +41,7 @@ public class PlayerDefScript : MonoBehaviour
         this._sprtRdr.flipX = true;
         _currentHealth = _maxHealth;
         audioSource = GetComponent<AudioSource>();
-        initialPosition = transform.position;
+        transPos = transform.position;
     }
 
     protected void Update()
@@ -82,7 +82,7 @@ public class PlayerDefScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            transform.position = initialPosition;
+            transform.position = transPos;
             this.gameObject.transform.position = GameObject.FindGameObjectWithTag("Respawn").transform.position;
         }
     }
@@ -176,9 +176,13 @@ public class PlayerDefScript : MonoBehaviour
 
                 if (_jumpAudio != null && audioSource != null) // ジャンプ時のサウンド再生
                 {
-                    Debug.Log("ジャンプのサウンド再生開始");
+                    isJumpping = true;
                     audioSource.PlayOneShot(_jumpAudio);
-                    Debug.Log("一応ジャンプオン出てるある");
+                }
+                else
+                {
+                    isJumpping = false;
+                    audioSource.Stop();
                 }
             }
         }
