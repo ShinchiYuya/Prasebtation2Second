@@ -1,4 +1,6 @@
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip yourBGMClip;
     [SerializeField] GameObject pauseMenuUI1;
     [SerializeField] GameObject pauseMenuUI2;
+
+    [SerializeField] string targetSceneName; // 移動先のシーン名を指定する
 
     private bool isUIPaused = false;
     private static GameManager _instance;
@@ -26,7 +30,13 @@ public class GameManager : MonoBehaviour
         {
             TogglePause();
         }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            SceneManager.LoadScene(targetSceneName); // 指定したシーン名に移動する
+        }
     }
+
 
     public static GameManager Instance
     {
@@ -72,9 +82,6 @@ public class GameManager : MonoBehaviour
             StopBGM();
             pauseMenuUI1.SetActive(true);
             pauseMenuUI2.SetActive(true);
-
-            // テキストの点滅を制御するスクリプトに通知
-            TextBlink.Instance.StartBlinking();
         }
         else
         {
@@ -82,9 +89,6 @@ public class GameManager : MonoBehaviour
             PlayBGM(yourBGMClip);
             pauseMenuUI1.SetActive(false);
             pauseMenuUI2.SetActive(false);
-
-            // テキストの点滅を制御するスクリプトに通知
-            TextBlink.Instance.StopBlinking();
         }
     }
 }
