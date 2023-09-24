@@ -176,6 +176,7 @@ public class PlayerDefScript : MonoBehaviour
 
                 if (_jumpAudio != null && audioSource != null) // ジャンプ時のサウンド再生
                 {
+                    Debug.Log("ジャンプのサウンド再生開始");
                     audioSource.PlayOneShot(_jumpAudio);
                     Debug.Log("一応ジャンプオン出てるある");
                 }
