@@ -1,39 +1,43 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // GameManagerのインスタンスを格納するプライベート変数
+    [SerializeField] private AudioSource bgmAudioSource;
+    [SerializeField] AudioClip yourBGMClip;
+    [SerializeField] GameObject pauseMenuUI1;
+    [SerializeField] GameObject pauseMenuUI2;
+
+    private bool isUIPaused = false;
     private static GameManager _instance;
-    // 敵の初期位置を保持する変数
+    private bool isPaused = false;
     private Vector3 initialEnemyPosition;
-    // 外部からGameManagerのインスタンスを取得するプロパティ
+
+    private void Start()
+    {
+        // 最初からUIを非表示にする
+        pauseMenuUI1.SetActive(false);
+        pauseMenuUI2.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
+
     public static GameManager Instance
     {
         get
         {
-            // インスタンスがまだ存在しない場合、新しいインスタンスを作成
             if (_instance == null)
             {
-                _instance = new GameManager();
+                _instance = FindObjectOfType<GameManager>();
             }
             return _instance;
         }
-    }
-
-    // その他のGameManagerのメソッドや変数...
-
-    // インスタンスが生成された時の初期化
-    private void Awake()
-    {
-        // インスタンスが既に存在する場合、新しいインスタンスを破棄
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        // インスタンスが存在しない場合、このインスタンスを設定
-        _instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     public Vector3 GetInitialEnemyPosition()
@@ -41,8 +45,46 @@ public class GameManager : MonoBehaviour
         return initialEnemyPosition;
     }
 
-    public void GameOver()
+    public void PlayBGM(AudioClip bgmClip)
     {
+        if (bgmAudioSource != null && bgmClip != null)
+        {
+            bgmAudioSource.clip = bgmClip;
+            bgmAudioSource.Play();
+        }
+    }
 
+    public void StopBGM()
+    {
+        if (bgmAudioSource != null)
+        {
+            bgmAudioSource.Stop();
+        }
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            Time.timeScale = 0f;
+            StopBGM();
+            pauseMenuUI1.SetActive(true);
+            pauseMenuUI2.SetActive(true);
+
+            // テキストの点滅を制御するスクリプトに通知
+            TextBlink.Instance.StartBlinking();
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            PlayBGM(yourBGMClip);
+            pauseMenuUI1.SetActive(false);
+            pauseMenuUI2.SetActive(false);
+
+            // テキストの点滅を制御するスクリプトに通知
+            TextBlink.Instance.StopBlinking();
+        }
     }
 }
